@@ -255,5 +255,10 @@
       </snapshots>
     </pluginRepository>
   </pluginRepositories>
-
-</project>
+  <distributionManagement>
+    <repository>
+      <id>snapshots</id>
+      <name>c73a699b418d-snapshots</name>
+      <url>${arifactory_url}</url>
+    </repository>
+  </distributionManagement> </project>
