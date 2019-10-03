@@ -259,6 +259,6 @@
     <repository>
       <id>snapshots</id>
       <name>c73a699b418d-snapshots</name>
-      <url>${arifactory_url}</url>
+      <url>${artifactory_url}</url>
     </repository>
   </distributionManagement> </project>
