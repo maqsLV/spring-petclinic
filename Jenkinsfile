@@ -34,7 +34,7 @@ pipeline { // For Job F/G
                     "files": [
                         {
                         "pattern": "target/*.jar",
-                        "target": "test/com/epam-labs/"
+                        "target": "test/com/epam-labs/sorokevych/"
                         }
                     ]
                 }'''
