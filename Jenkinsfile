@@ -8,7 +8,9 @@ pipeline { // For Job F/G
     stages {
         stage('Preparation') {
             steps {
+                echo ${env.BRANCH}
                 cleanWs()
+                echo "${env.BRANCH}"
                 git branch: "${env.BRANCH}", credentialsId: '18bc401b-7960-4d77-bd8d-6e75cfdf8a3d', url: 'git@github.com:maqsLV/spring-petclinic.git'
             }
         }
