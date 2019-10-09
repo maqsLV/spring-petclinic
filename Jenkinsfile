@@ -9,7 +9,7 @@ pipeline { // For Job F/G
         stage('Preparation') {
             steps {
                 cleanWs()
-                git branch: 'master', credentialsId: '18bc401b-7960-4d77-bd8d-6e75cfdf8a3d', url: 'git@github.com:maqsLV/spring-petclinic.git'
+                git branch: "${env.BRANCH}", credentialsId: '18bc401b-7960-4d77-bd8d-6e75cfdf8a3d', url: 'git@github.com:maqsLV/spring-petclinic.git'
             }
         }
         stage('Build and test') {
@@ -23,6 +23,9 @@ pipeline { // For Job F/G
             }
         }
         stage('Deploy ^^') {
+            when {
+                branch 'master'
+            }
             steps {
                 rtUpload (
                 serverId: 'ArtiForStudents',
