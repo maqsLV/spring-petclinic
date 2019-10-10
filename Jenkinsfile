@@ -20,13 +20,14 @@ pipeline { // For Job F/G
         }
         stage('Package') {
             steps {
+                sh "mvn versions:set -DgenerateBackupPoms=false -DnewVersion=2.1.0BUILD-${env.BRANCH_NAME}-SNAPSHOT"
                 sh 'mvn package -Dmaven.test.skip=true'
             }
         }
         stage('Deploy ^^') {
-            when {
-                branch 'master'
-            }
+            //when {
+            //    branch 'master'
+            //}
             steps {
                 rtUpload (
                 serverId: 'ArtiForStudents',
@@ -34,7 +35,7 @@ pipeline { // For Job F/G
                     "files": [
                         {
                         "pattern": "target/*.jar",
-                        "target": "test/com/epam-labs/"
+                        "target": "test/com/epam-labs/sorokevych/"
                         }
                     ]
                 }'''
