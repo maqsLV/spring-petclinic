@@ -20,6 +20,7 @@ pipeline { // For Job F/G
         }
         stage('Package') {
             steps {
+                sh "mvn versions:set -DgenerateBackupPoms=false -DnewVersion=2.1.0BUILD-${env.BRANCH_NAME}-SNAPSHOT"
                 sh 'mvn package -Dmaven.test.skip=true'
             }
         }
